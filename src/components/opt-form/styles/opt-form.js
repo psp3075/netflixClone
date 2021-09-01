@@ -6,6 +6,8 @@ export const Container = styled.div`
   height: 100%;
   margin-top: 20px;
   flex-wrap: wrap;
+  padding-left: 50px;
+  padding-right: 50px;
 
   @media (max-width: 1000px) {
     flex-direction: column;
@@ -14,10 +16,10 @@ export const Container = styled.div`
 `;
 
 export const Input = styled.input`
-  max-width: 450px;
+  max-width: 460px;
   width: 100%;
   border: 0;
-  padding: 10px;
+  padding: 20px;
   height: 70px;
   box-sizing: border-box;
 `;

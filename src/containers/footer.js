@@ -1,10 +1,10 @@
 import React from "react";
 import Footer from "../components/footer/index";
 
-export function FooterContainer() {
+function FooterContainer() {
   return (
     <Footer>
-      <Footer.Title>Questions? Call 000-800-040-1843</Footer.Title>
+      <Footer.Title>Questions? Call 000-800-040-18430</Footer.Title>
       <Footer.Break />
       <Footer.Row>
         <Footer.Column>
