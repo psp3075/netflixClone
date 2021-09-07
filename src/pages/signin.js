@@ -2,15 +2,31 @@ import React, { useState, useContext } from "react";
 import FooterContainer from "../containers/footer";
 import HeaderContainer from "../containers/header";
 import Form from "../components/form/index.js";
+import { FirebaseContext } from "./../context/firebase";
+import * as ROUTES from "../constants/routes";
+import { useHistory } from "react-router";
 
 const Signin = () => {
+  const history = useHistory();
+  const { firebase } = useContext(FirebaseContext);
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const isValid = password === "" || emailAddress === "";
+  const isInvalid = password === "" || emailAddress === "";
   const handleSignin = (e) => {
     e.preventDefault();
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(emailAddress, password)
+      .then(() => {
+        history.push(ROUTES.BROWSE);
+      })
+      .catch((error) => {
+        setEmailAddress("");
+        setPassword("");
+        setError(error.message);
+      });
   };
   return (
     <>
@@ -31,7 +47,7 @@ const Signin = () => {
               value={password}
               onChange={({ target }) => setPassword(target.value)} //destructuring
             />
-            <Form.Submit disabled={isValid} type="submit">
+            <Form.Submit disabled={isInvalid} type="submit">
               Sign In
             </Form.Submit>
           </Form.Base>
