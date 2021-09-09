@@ -25,7 +25,7 @@ const Signup = () => {
         result.user
           .updateProfile({
             displayName: userName,
-            photoUrl: Math.floor(Math.random() * 5) + 1,
+            photoURL: Math.floor(Math.random() * 5) + 1,
           })
           .then(() => {
             history.push(ROUTES.BROWSE);
