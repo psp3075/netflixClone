@@ -108,6 +108,7 @@ export const FeatureCallOut = styled.h2`
 export const Group = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 10px;
 `;
 
 export const Picture = styled.button`
@@ -127,6 +128,32 @@ export const Dropdown = styled.div`
   width: 100px;
   top: 32px;
   right: 10px;
+
+  ${Group}:last-of-type ${TextLink} {
+    cursor: pointer;
+  }
+
+  ${Group} {
+    margin-bottom: 0;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    ${TextLink}, ${Picture} {
+      cursor: default;
+    }
+  }
+
+  button {
+    margin-right: 10px;
+  }
+
+  p {
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
 `;
 
 export const Profile = styled.div`
