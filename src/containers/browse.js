@@ -60,6 +60,7 @@ export function BrowseContainer({ slides }) {
             spiral of revolution and bloody crime. This path brings him
             face-to-face with his alter-ego: the Joker.
           </Header.Text>
+          <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
     </>
