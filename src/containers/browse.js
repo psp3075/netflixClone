@@ -4,6 +4,8 @@ import { FirebaseContext } from "../context/firebase";
 import Loading from "../components/loading/index";
 import Header from "../components/header/index";
 import Card from "../components/card/index";
+import Player from "../components/player/index";
+import FooterContainer from "./footer";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
 
@@ -99,15 +101,15 @@ export function BrowseContainer({ slides }) {
               ))}
             </Card.Entities>
             <Card.Feature category={category}>
-              <p>player</p>
-              {/* <Player>
+              <Player>
                 <Player.Button />
                 <Player.Video src="/videos/bunny.mp4" />
-              </Player> */}
+              </Player>
             </Card.Feature>
           </Card>
         ))}
       </Card.Group>
+      <FooterContainer />
     </>
   ) : (
     <ProfileContainer user={user} setProfile={setProfile} />

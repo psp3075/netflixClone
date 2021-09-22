@@ -28,8 +28,8 @@ export const Group = styled.div`
   display: flex;
   flex-direction: ${({ flexDirection }) =>
     flexDirection === "row" ? "row" : "column"};
-  ${({ alignItems }) => alignItems && `align-items:${alignItems}`}
-  ${({ margin }) => margin && `margin:${margin}`}
+  ${({ alignItems }) => alignItems && `align-items:${alignItems}`};
+  ${({ margin }) => margin && `margin:${margin}`};
 
   > ${Container}:first-of-type {
     @media (max-width: 1100px) {
@@ -144,7 +144,7 @@ export const Meta = styled.div`
   position: absolute;
   bottom: 0;
   padding: 10px;
-  background-color: #00000008f;
+  background-color: #0000008f;
 `;
 
 export const Entities = styled.div`
@@ -158,7 +158,7 @@ export const Item = styled.div`
   margin-right: 5px;
   position: relative;
   cursor: pointer;
-  transition: transform(0.2s);
+  transition: transform 0.3s;
 
   &:hover {
     transform: scale(1.2);
