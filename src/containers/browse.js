@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import ProfileContainer from "./profile";
+import Fuse from "fuse.js";
 import { FirebaseContext } from "../context/firebase";
 import Loading from "../components/loading/index";
 import Header from "../components/header/index";
@@ -30,11 +31,23 @@ export function BrowseContainer({ slides }) {
     setSlideRows(slides[category]);
   }, [slides, category]);
 
+  useEffect(() => {
+    const fuse = new Fuse(slideRows, {
+      keys: ["data.description", "data.title"],
+    });
+    const results = fuse.search(searchTerm).map(({ item }) => item);
+    if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+      setSlideRows(results);
+    } else {
+      setSlideRows(slides[category]);
+    }
+  }, [searchTerm]);
+
   return profile.displayName ? (
     <>
       {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
 
-      <Header src="joker1">
+      <Header src="moneyheist">
         <Header.Frame>
           <Header.Group>
             <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
@@ -54,7 +67,7 @@ export function BrowseContainer({ slides }) {
           <Header.Group>
             <Header.Search
               searchTerm={searchTerm}
-              setSearchTeam={setSearchTerm}
+              setSearchTerm={setSearchTerm}
             />
             <Header.Profile>
               <Header.Picture src={user.photoURL} />
@@ -73,12 +86,12 @@ export function BrowseContainer({ slides }) {
           </Header.Group>
         </Header.Frame>
         <Header.Feature>
-          <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
+          <Header.FeatureCallOut>Watch Money Heist Now</Header.FeatureCallOut>
           <Header.Text>
-            In Gotham City, mentally troubled comedian Arthur Fleck is
-            disregarded and mistreated by society. He then embarks on a downward
-            spiral of revolution and bloody crime. This path brings him
-            face-to-face with his alter-ego: the Joker.
+            Money Heist (Spanish: La casa de papel, "The House of Paper") is a
+            Spanish heist crime drama television series created by Álex Pina.
+            The series traces two long-prepared heists led by the Professor, one
+            on the Royal Mint of Spain, and one on the Bank of Spain.
           </Header.Text>
           <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>

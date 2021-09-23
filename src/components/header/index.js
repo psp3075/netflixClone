@@ -80,7 +80,7 @@ Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
 
 Header.Search = function HeaderSearch({
   searchTerm,
-  setSearchterm,
+  setSearchTerm,
   ...restProps
 }) {
   const [searchActive, setSearchActive] = useState(false);
@@ -94,7 +94,7 @@ Header.Search = function HeaderSearch({
       </SearchIcon>
       <SearchInput
         value={searchTerm}
-        onChange={({ target }) => setSearchterm(target.value)}
+        onChange={({ target }) => setSearchTerm(target.value)}
         placeholder="Search Films or Series"
         active={searchActive}
       />
