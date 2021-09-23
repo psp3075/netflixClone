@@ -88,10 +88,10 @@ export function BrowseContainer({ slides }) {
         <Header.Feature>
           <Header.FeatureCallOut>Watch Money Heist Now</Header.FeatureCallOut>
           <Header.Text>
-            Money Heist (Spanish: La casa de papel, "The House of Paper") is a
-            Spanish heist crime drama television series created by Álex Pina.
-            The series traces two long-prepared heists led by the Professor, one
-            on the Royal Mint of Spain, and one on the Bank of Spain.
+            Money Heist (Spanish: La casa de papel), is a Spanish heist crime
+            drama television series created by Álex Pina. The series traces two
+            long-prepared heists led by the Professor, one on the Royal Mint of
+            Spain, and one on the Bank of Spain.
           </Header.Text>
           <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
